@@ -1,0 +1,1 @@
+# Naz_Community_attractions
