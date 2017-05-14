@@ -1,7 +1,7 @@
 {
   "name": "Naz_Community_attractions",
   "version": "1.0.0",
-  "description": "##### We are building a prototype for a future application which will show the  events that will take place in Nazareth.",
+  "description": "We are building a prototype for a future application which will show the  events that will take place in Nazareth.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/FACN1/Naz_Community_attractions/issues"
   },
-  "homepage": "https://github.com/FACN1/Naz_Community_attractions#readme"
+  "homepage": "https://github.com/FACN1/Naz_Community_attractions#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.8"
+  }
 }
