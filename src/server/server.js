@@ -5,7 +5,7 @@ const router = require('./routes/index.js');
 
 const app = express();
 
-app.set('port', process.env.PORT || '4000');
+app.set('port', process.env.PORT || 4000);
 
 app.engine('hbs', hbs ({
   defaultLayout: 'index',
