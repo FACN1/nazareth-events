@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/FACN1/Naz_Community_attractions#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.8"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
