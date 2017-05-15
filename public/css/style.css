@@ -1,3 +1,28 @@
-.tc{
-    text-align: center; 
+body {
+  margin: 0;
+}
+
+.tc {
+  text-align: center;
+  font-weight: bold;
+}
+ .nextDay{
+  display: inline;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.date{
+  display: inline;
+}
+
+.eventsDate{
+  border: solid 1px black;
+  width: 100%;
+  padding: 8px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.calendarDate{
+  float: right;
 }
