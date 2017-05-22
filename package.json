@@ -4,8 +4,7 @@
   "description": "We are building a prototype for a future application which will show the  events that will take place in Nazareth.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server/start.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

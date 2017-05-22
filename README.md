@@ -1,3 +1,3 @@
-# Naz_Community_attractions
+# Nazareth Events
 
-##### We are building a prototype for a future application which will show the  events that will take place in Nazareth.
+An app for seeing events on in Nazareth.
