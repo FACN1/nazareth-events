@@ -14,4 +14,23 @@ The site will have 2 basic users (and 2 separate branches):
     - a profile page, with ability to edit
     - a form to add a new event
 
-
+### File Structure
+```
+database/
+    db_connection.js
+    db_build.js
+    db_build.sql
+public/
+    css/
+        style.css
+src/
+    server.js
+    start.js
+tests/
+    test.js
+views/
+    layouts/
+        main.hbs
+    home.hbs
+    organisations_login.hbs
+```
