@@ -16,4 +16,8 @@ server.get('/', function (req, res) {
   res.render('home')
 })
 
+server.get('/organisations/login', (req, res) => {
+  res.render('organisations_login')
+})
+
 module.exports = server
