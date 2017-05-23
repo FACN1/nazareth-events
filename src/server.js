@@ -1,7 +1,7 @@
 var express = require('express')
 var server = express() // remember this!
 var hbs = require('express-handlebars')
-var path = require('path');
+var path = require('path')
 
 server.use(express.static(path.join(__dirname, '../public')))
 
@@ -17,7 +17,6 @@ server.get('/', function (req, res) {
 })
 
 module.exports = server
-
 
 // const express = require('express');
 // var server = express();
