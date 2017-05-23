@@ -1,6 +1,6 @@
 BEGIN;
 
-DROP TABLE IF EXISTS EVENTS, ORGANIZERS cascade; -- if the table already exists then delete it
+DROP TABLE IF EXISTS EVENTS, ORGANIZERS cascade;
 
 CREATE TABLE ORGANIZERS(
   id SERIAL PRIMARY KEY,
@@ -8,7 +8,7 @@ CREATE TABLE ORGANIZERS(
   password VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE EVENTS( --if the table does not exist, then create the table and call it founders
+CREATE TABLE EVENTS(
   id SERIAL PRIMARY KEY,
   title VARCHAR(100) NOT NULL,
   location TEXT NOT NULL,

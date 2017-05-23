@@ -1,10 +1,9 @@
 const { Pool } = require('pg')
 const url = require('url')
-// const env =
+
 require('env2')('./config.env')
 
-    // requires the DB export in config env and puts it inside process.env and then insie DB_URL
-if (!process.env.DB_URL) { // if process.env was not found DB_URL won't get its value, so it says that DB_URL must have a value
+if (!process.env.DB_URL) {
   throw new Error('Environment variable DB_URL must be set')
 }
 

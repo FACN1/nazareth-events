@@ -1,5 +1,5 @@
 var express = require('express')
-var server = express() // remember this!
+var server = express()
 var hbs = require('express-handlebars')
 var path = require('path')
 
@@ -17,12 +17,3 @@ server.get('/', function (req, res) {
 })
 
 module.exports = server
-
-// const express = require('express');
-// var server = express();
-//
-// server.get('/', function(req, res){
-//   res.json({message: 'this is a useless object, but whatever'})
-// })
-//
-// module.exports = server;
