@@ -16,6 +16,15 @@ server.get('/', function (req, res) {
   res.render('home')
 })
 
+// server.get('/events/:id', (req, res) => {
+//   db.getEventById(req.params.id, (err, event) => {
+//     if (err) {
+//       return res.send('db error :(')
+//     }
+//     res.render('event_detail', event)
+//   })
+// })
+
 server.get('/organisations/login', (req, res) => {
   res.render('organisations_login')
 })
