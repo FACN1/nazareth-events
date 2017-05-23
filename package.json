@@ -4,8 +4,15 @@
   "description": "We are building a prototype for a future application which will show the  events that will take place in Nazareth.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests/test.js | tap-spec",
+    "start": "node src/start.js",
+    "dev": "nodemon src/start.js",
+    "lint": "./node_modules/.bin/eslint **/*.js"
   },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FACN1/Naz_Community_attractions.git"
@@ -20,9 +27,19 @@
   "dependencies": {
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.8"
+    "handlebars": "^4.0.8",
+    "pg": "^6.2.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.2.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
   }
 }
