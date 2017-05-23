@@ -21,3 +21,32 @@ BIgFont{
   font-size: 2em;
   font-weight: bold;
 }
+
+/*
+login page
+*/
+
+.login-form {
+  text-align: center;
+  padding: 2em;
+  background: #eee;
+  border-radius: 20px;
+}
+
+.login-label {
+  margin: 0em 0em 1em 0em;
+  display: block;
+}
+
+.login-input {
+  margin: 0.5em auto;
+  padding: 0.5em;
+  display: block;
+  border-radius: 10px;
+}
+
+.login-submit {
+  padding: 0.5em;
+  border-radius: 10px;
+  background: white;
+}
