@@ -4,6 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const db = require('./db_queries.js')
 const jwt = require('jsonwebtoken')
+const dateFormat = require('dateformat')
 
 require('env2')('./config.env')
 const server = express()
@@ -15,7 +16,10 @@ server.use(bodyParser.urlencoded({
 
 server.engine('hbs', hbs({
   defaultLayout: 'main',
-  extname: 'hbs'
+  extname: 'hbs',
+  helpers: {
+    formatDate: (date) => dateFormat(date, 'dddd d mmmm, yyyy')
+  }
 }))
 
 server.set('view engine', 'hbs')
@@ -29,6 +33,15 @@ server.get('/', function (req, res) {
     res.render('home', {
       events: events
     })
+  })
+})
+
+server.get('/events/:id', (req, res) => {
+  db.getEventById(req.params.id, (err, event) => {
+    if (err) {
+      return res.send('db error :(')
+    }
+    res.render('event_detail', event)
   })
 })
 

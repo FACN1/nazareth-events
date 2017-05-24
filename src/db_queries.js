@@ -12,6 +12,18 @@ db.getEvents = (cb) => {
   })
 }
 
+db.getEventById = (id, cb) => {
+  connection.query('SELECT * FROM EVENTS WHERE id=$1', [id], (err, res) => {
+    if (err) {
+      return cb(err)
+    }
+    if (res.rows.length === 0) {
+      return cb(new Error(`no event with id=${id}`))
+    }
+    cb(null, res.rows[0])
+  })
+}
+
 db.getOrganizerByUsername = (username, cb) => {
   connection.query('SELECT * FROM ORGANIZERS WHERE username=$1', [username], (err, res) => {
     if (err) {
