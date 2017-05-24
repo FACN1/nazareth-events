@@ -25,11 +25,8 @@
   },
   "homepage": "https://github.com/FACN1/Naz_Community_attractions#readme",
   "dependencies": {
-<<<<<<< HEAD
     "body-parser": "^1.17.2",
-=======
     "env2": "^2.2.0",
->>>>>>> master
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.8",
