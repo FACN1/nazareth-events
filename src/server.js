@@ -3,7 +3,9 @@ const hbs = require('express-handlebars')
 const path = require('path')
 const bodyParser = require('body-parser')
 const db = require('./db_queries.js')
+const jwt = require('jsonwebtoken')
 
+require('env2')('./config.env')
 const server = express()
 
 server.use(express.static(path.join(__dirname, '../public')))
@@ -42,6 +44,7 @@ server.post('/authenticate', (req, res) => {
       return res.send(err.message)
     }
     if (!organizer) {
+      // not ideal as it retains the /authenticate route in url
       return res.render('organisations_login', {
         errorMessage: 'username not recognised.'
       })
@@ -50,8 +53,10 @@ server.post('/authenticate', (req, res) => {
         errorMessage: 'incorrect password.'
       })
     }
-    // generate token
-    // send token
+    // generate and send token
+    const token = jwt.sign({username}, process.env.JWT_SECRET)
+    res.setHeader('x-access-token', token)
+    // should really redirect to profile page.
     res.send('correct credentials')
   })
 })

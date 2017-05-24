@@ -30,6 +30,7 @@
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.8",
+    "jsonwebtoken": "^7.4.1",
     "pg": "^6.2.2"
   },
   "devDependencies": {
