@@ -4,6 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const db = require('./db_queries.js')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 const dateFormat = require('dateformat')
 
 require('env2')('./config.env')
@@ -61,16 +62,33 @@ server.post('/authenticate', (req, res) => {
       return res.render('organisations_login', {
         errorMessage: 'username not recognised.'
       })
-    } else if (password !== organizer.password) {
-      return res.render('organisations_login', {
-        errorMessage: 'incorrect password.'
+    } else {
+      bcrypt.compare(password, organizer.password, (err, isCorrect) => {
+        if (err) {
+          // to be improved
+          return res.send(err.message)
+        }
+        if (!isCorrect) {
+          return res.render('organisations_login', {
+            errorMessage: 'incorrect password.'
+          })
+        }
+        const token = jwt.sign({username}, process.env.JWT_SECRET)
+        res.setHeader('x-access-token', token)
+        // should really redirect to profile page.
+        res.send('correct credentials')
       })
     }
-    // generate and send token
-    const token = jwt.sign({username}, process.env.JWT_SECRET)
-    res.setHeader('x-access-token', token)
-    // should really redirect to profile page.
-    res.send('correct credentials')
+    // else if (password !== organizer.password) {
+    //   return res.render('organisations_login', {
+    //     errorMessage: 'incorrect password.'
+    //   })
+    // }
+    // // generate and send token
+    // const token = jwt.sign({username}, process.env.JWT_SECRET)
+    // res.setHeader('x-access-token', token)
+    // // should really redirect to profile page.
+    // res.send('correct credentials')
   })
 })
 
