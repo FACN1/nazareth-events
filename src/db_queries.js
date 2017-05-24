@@ -11,3 +11,16 @@ db.getEvents = (cb) => {
     cb(null, res.rows)
   })
 }
+
+db.getOrganizerByUsername = (username, cb) => {
+  connection.query('SELECT * FROM ORGANIZERS WHERE username=$1', [username], (err, res) => {
+    if (err) {
+      return cb(err)
+    }
+    if (res.rows.length === 0) {
+      // callback with null result if no organizer found
+      return cb(null, null)
+    }
+    cb(null, res.rows[0])
+  })
+}
