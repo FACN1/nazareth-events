@@ -1,7 +1,13 @@
-var test = require('tape')
+const tape = require('tape')
+const request = require('supertest')
+const server = require('../src/server.js')
 
-test('#1 a test that always passes', function (t) {
-  t.plan(1)
-
-  t.equal(1, 1, 'just testing, this must always be right')
+tape('static file test: GET request to /css/style.css', t => {
+  request(server)
+    .get('/css/style.css')
+    .end(function (req, res) {
+      t.equal(res.status, 200, 'should return status code 200')
+      t.ok(res.text.includes('body {'), 'should return css page containing test string "body {"')
+      t.end()
+    })
 })
