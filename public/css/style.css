@@ -4,10 +4,7 @@ body{
 
 }
 
-h1 {
-  color:red;
-  font-size: 2em;
-
+WrapText {
   width: 40%;
   white-space: normal;
   word-wrap: break-word;
@@ -17,7 +14,44 @@ h1 {
 
 }
 
-BIgFont{
+
+
+.big-text {
   font-size: 2em;
   font-weight: bold;
+}
+
+.red-text {
+  color: red;
+}
+
+.inliner {
+  display: inline;
+}
+
+
+
+.font-cursive{
+ font-family: 'Satisfy', cursive;
+}
+
+
+.bg-green {
+    background-color: #19a974;
+}
+
+img {
+    max-width: 100%;
+    border-style: none;
+}
+
+smallimg {
+  width: 3em;
+}
+
+html {
+    font-family: sans-serif;
+    /*line-height: 1.15;*/
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
