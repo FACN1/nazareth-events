@@ -4,8 +4,29 @@ var hbs = require('express-handlebars')
 var path = require('path')
 var db = require('./db_queries.js')
 const dateFormat = require('dateformat')
+const cookieParser = require('cookie-parser')
 
 server.use(express.static(path.join(__dirname, '../public')))
+server.use(cookieParser())
+
+// auth middleware
+// server.use((req, res, next) => {
+//   if (req.cookies.token) {
+//     console.log('token here!')
+//     // check if token is legit
+//     jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+//       if (err) {
+//         // token is not valid
+//         return
+//       }
+//       // else token is valid
+//       // set some stuff with req.body, username etc.
+//       req.auth.isAuthenticated = true
+//       req.auth.username = decoded.username
+//     })
+//   }
+//   next()
+// })
 
 server.engine('hbs', hbs({
   defaultLayout: 'main',
