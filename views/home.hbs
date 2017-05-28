@@ -1,9 +1,8 @@
 
+{{> header }}
 
-
-<cevents class="big-text">
 {{#each datesWithEvents}}
-<p><ccevents class="red-text">{{date}}</ccevents></p>
+<p class="red-text">{{date}}</p>
   {{#each events}}
       <p>{{title}}  </p>
     <p>{{description}}</p>
@@ -11,10 +10,3 @@
     <br/>
   {{/each}}
 {{/each}}
-</cevents>
-
-
-<h1>FFFF event organizer: {{name}}</h1>
-<h2>title:  {{this.location}} </h2>
-{{> header }}
-<WrapText> one jumps over the fire, knowing that the fire is not impressed. HOO YAA! </WrapText>
