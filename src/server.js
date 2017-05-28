@@ -79,21 +79,10 @@ server.post('/authenticate', (req, res) => {
           secure: true,
           sameSite: true
         })
-        res.setHeader('x-access-token', token)
-        // should really redirect to profile page.
+        // should ideally redirect to profile page or create event page.
         res.send('correct credentials')
       })
     }
-    // else if (password !== organizer.password) {
-    //   return res.render('organisations_login', {
-    //     errorMessage: 'incorrect password.'
-    //   })
-    // }
-    // // generate and send token
-    // const token = jwt.sign({username}, process.env.JWT_SECRET)
-    // res.setHeader('x-access-token', token)
-    // // should really redirect to profile page.
-    // res.send('correct credentials')
   })
 })
 
