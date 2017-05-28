@@ -53,7 +53,6 @@ var datesWithEvents = [
   }
 ]
 
-
 server.use(express.static(path.join(__dirname, '../public')))
 
 server.engine('hbs', hbs({
