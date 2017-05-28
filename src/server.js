@@ -1,59 +1,20 @@
-var express = require('express')
-var server = express()
-var hbs = require('express-handlebars')
-var path = require('path')
-var db = require('./db_queries.js')
+const express = require('express')
+const hbs = require('express-handlebars')
+const path = require('path')
+const bodyParser = require('body-parser')
+const db = require('./db_queries.js')
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
 const dateFormat = require('dateformat')
+const datesWithEvents = require('./EventsData.js')
 
-var datesWithEvents = [
-  {
-    date: 'Wednesday, 24 May',
-    events: [
-      {
-        title: 'Pangea reunification',
-        description: 'Australia joined Europe in Eurovision, now its time for something MORE!',
-        time: '23:59',
-        location: 'THE WORLD!!!'
-      },
-      {
-        title: '@_@ Swirly glasses stories',
-        description: 'WE all read books, but heres a guy who really can show off what he has learned',
-        time: 'summer equinox',
-        location: 'ON TOP OF A MOUNTAIN!!!'
-      }
-    ]
-  },
-  {
-    date: 'Thursday, 25 May',
-    events: [
-      {
-        title: 'Pangea destruction',
-        description: 'Australia joined Europe in Eurovision, now its time for something MORE!',
-        time: '00:00',
-        location: 'LIWAN!!!'
-      },
-      {
-        title: 'training on thorns',
-        description: 'a traditional African festival in which strong fighters dance on thorns',
-        time: '20:00-21:00',
-        location: 'South-African-American African-American African Center'
-      }
-    ]
-  },
-  {
-    date: 'Friday, 26 May',
-    events: [
-      {
-        title: 'Khan El Basha history lessons',
-        description: 'Hitsory lessons can be fun too...if you bring chocolates',
-        time: '15:00-19:00',
-        location: 'Khan El Basha'
-      }
-    ]
-  }
-]
+require('env2')('./config.env')
+const server = express()
 
 server.use(express.static(path.join(__dirname, '../public')))
+server.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 server.engine('hbs', hbs({
   defaultLayout: 'main',
@@ -89,6 +50,42 @@ server.get('/events/:id', (req, res) => {
 
 server.get('/organisations/login', (req, res) => {
   res.render('organisations_login')
+})
+
+server.post('/authenticate', (req, res) => {
+  const { username, password } = req.body
+  db.getOrganizerByUsername(username, (err, organizer) => {
+    if (err) {
+      // to be improved
+      return res.send(err.message)
+    }
+    if (!organizer) {
+      // not ideal as it retains the /authenticate route in url
+      return res.render('organisations_login', {
+        errorMessage: 'username not recognised.'
+      })
+    } else {
+      bcrypt.compare(password, organizer.password, (err, isCorrect) => {
+        if (err) {
+          // to be improved
+          return res.send(err.message)
+        }
+        if (!isCorrect) {
+          return res.render('organisations_login', {
+            errorMessage: 'incorrect password.'
+          })
+        }
+        const token = jwt.sign({username}, process.env.JWT_SECRET)
+        // set a secure cookie
+        res.cookie('token', token, {
+          secure: true,
+          sameSite: true
+        })
+        // should ideally redirect to profile page or create event page.
+        res.send('correct credentials')
+      })
+    }
+  })
 })
 
 module.exports = server
