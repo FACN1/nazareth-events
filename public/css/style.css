@@ -1,8 +1,39 @@
-
-body{
+body {
   background-color: blue;
 
 }
+
+html {
+    font-family: sans-serif;
+    /*line-height: 1.15;*/
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+.bg-green {
+    background-color: #19a974;
+}
+
+
+/*
+images, or sth
+*/
+
+img {
+    max-width: 100%;
+    border-style: none;
+}
+
+smallimg {
+  width: 3em;
+}
+
+
+
+
+/*
+text size and coloring stuff
+*/
 
 WrapText {
   width: 40%;
@@ -13,8 +44,6 @@ WrapText {
   /*white-space: normal;   ******/
 
 }
-
-
 
 .big-text {
   font-size: 2em;
@@ -29,29 +58,42 @@ WrapText {
   display: inline;
 }
 
-
-
 .font-cursive{
  font-family: 'Satisfy', cursive;
 }
 
 
-.bg-green {
-    background-color: #19a974;
+
+
+
+
+
+/*
+login page
+*/
+
+.login-form {
+  text-align: center;
+  padding: 2em;
+  background: #eee;
+  border-radius: 20px;
 }
 
-img {
-    max-width: 100%;
-    border-style: none;
+.login-label {
+  margin: 0em 0em 1em 0em;
+  display: block;
 }
 
-smallimg {
-  width: 3em;
+.login-input {
+  margin: 0.5em auto;
+  padding: 0.5em;
+  display: block;
+  border-radius: 10px;
 }
 
-html {
-    font-family: sans-serif;
-    /*line-height: 1.15;*/
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+.login-submit {
+  padding: 0.5em;
+  border-radius: 10px;
+  background: white;
+
 }
