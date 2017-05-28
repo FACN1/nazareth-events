@@ -74,6 +74,11 @@ server.post('/authenticate', (req, res) => {
           })
         }
         const token = jwt.sign({username}, process.env.JWT_SECRET)
+        // set a secure cookie
+        res.cookie('token', token, {
+          secure: true,
+          sameSite: true
+        })
         res.setHeader('x-access-token', token)
         // should really redirect to profile page.
         res.send('correct credentials')
