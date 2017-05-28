@@ -1,6 +1,9 @@
 <h3>Login</h3>
 
 <form class="login-form" action="/authenticate" method="post">
+  {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+  {{/if}}
   <label class="login-label">
     Organisation username:
     <input class="login-input" type="text" name="username" value="">
