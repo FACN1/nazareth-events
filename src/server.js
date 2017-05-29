@@ -4,9 +4,10 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const db = require('./db_queries.js')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const dateFormat = require('dateformat')
 const cookieParser = require('cookie-parser')
+const datesWithEvents = require('./EventsData.js')
 
 require('env2')('./config.env')
 const server = express()
@@ -49,8 +50,9 @@ server.get('/', function (req, res) {
       // to be improved
       return res.send('db error :(')
     }
+    // () using mock data for now
     res.render('home', {
-      events: events
+      datesWithEvents: datesWithEvents
     })
   })
 })
