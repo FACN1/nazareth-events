@@ -48,6 +48,10 @@ server.get('/events/:id', (req, res) => {
   })
 })
 
+server.get('/event-form', (req, res) => {
+  res.render('event-form')
+})
+
 server.get('/organisations/login', (req, res) => {
   res.render('organisations_login')
 })
