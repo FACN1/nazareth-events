@@ -6,6 +6,7 @@ const db = require('./db_queries.js')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const dateFormat = require('dateformat')
+const cookieParser = require('cookie-parser')
 const datesWithEvents = require('./EventsData.js')
 
 require('env2')('./config.env')
@@ -15,6 +16,23 @@ server.use(express.static(path.join(__dirname, '../public')))
 server.use(bodyParser.urlencoded({
   extended: true
 }))
+server.use(cookieParser())
+
+// auth middleware
+server.use((req, res, next) => {
+  if (req.cookies.token) {
+    jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        // token is not valid
+        return
+      }
+      // add to the request
+      req.isAuthenticated = true
+      req.username = decoded.username
+    })
+  }
+  next()
+})
 
 server.engine('hbs', hbs({
   defaultLayout: 'main',
@@ -80,9 +98,9 @@ server.post('/authenticate', (req, res) => {
           })
         }
         const token = jwt.sign({username}, process.env.JWT_SECRET)
-        // set a secure cookie
+        // set a cookie which is secure in production
         res.cookie('token', token, {
-          secure: true,
+          secure: process.env.NODE_ENV === 'production',
           sameSite: true
         })
         // should ideally redirect to profile page or create event page.
