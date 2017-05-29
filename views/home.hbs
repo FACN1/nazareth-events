@@ -1,17 +1,25 @@
 
 {{> header }}
 
-{{> calendar }}
+<div class="list-page-content">
 
-{{#each datesWithEvents}}
-<p class="red-text">{{date}}</p>
-  {{#each events}}
-      <p>{{title}}  </p>
+  <section class="calendar-section">
+    {{> calendar }}
+  </section>
+
+  <section class="events-section">
+    {{#each datesWithEvents}}
+    <p class="red-text">{{date}}</p>
+    {{#each events}}
+    <p>{{title}} </p>
     <p>{{description}}</p>
     <p>{{time}} {{location}}</p>
     <br/>
-  {{/each}}
-{{/each}}
+    {{/each}}
+    {{/each}}
+  </section>
+
+</div>
 
 <script type="text/javascript" src="/js/calendar.js"></script>
 <script type="text/javascript" src="/js/list.js"></script>

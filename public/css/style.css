@@ -12,15 +12,21 @@ CONTENTS:
 1) GENERAL
 */
 
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   background-color: #eee;
+  font-family: sans-serif;
 }
 
-html {
-  font-family: sans-serif;
-  /*line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;*/
+header {
+  height: 3em;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
 .bg-green {
@@ -71,9 +77,53 @@ WrapText {
 2) LIST PAGE
 */
 
+.list-page-content {
+  margin-top: 3em;
+  width: 100%;
+  position: fixed;
+  top: -100vh;
+  transition: 0.4s all;
+}
+
+.list-page-content.cal {
+  top: 0;
+}
+
+.calendar-section {
+  height: 100vh;
+}
+
+.events-section {
+  height: 100vh;
+  overflow: scroll;
+}
+
 /*
 3) CALENDAR
 */
+
+
+/*
+CALENDAR
+*/
+
+.calendar-section {
+  width: 100%;
+  height: 100vh;
+  background: white;
+}
+
+.calendar-container {
+
+}
+
+#calendar-button {
+  position: absolute;
+  left: 90%;
+  top: 0.8em;
+  color: white;
+}
+
 
 /*
 4) ORGANISATION LOGIN
