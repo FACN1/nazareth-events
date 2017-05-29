@@ -20,18 +20,19 @@ server.use(cookieParser())
 
 // auth middleware
 server.use((req, res, next) => {
-  if (req.cookies.token) {
-    jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
-      if (err) {
-        // token is not valid
-        return
-      }
-      // add to the request
-      req.isAuthenticated = true
-      req.username = decoded.username
-    })
+  if (!req.cookies.token) {
+    return next()
   }
-  next()
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      // token is not valid
+      return next()
+    }
+    // add to the request
+    req.isAuthenticated = true
+    req.username = decoded.username
+    next()
+  })
 })
 
 server.engine('hbs', hbs({
