@@ -2,6 +2,8 @@
 CONTENTS:
 
 1) GENERAL
+1.1) HEADER
+
 2) LIST PAGE
 3) CALENDAR
 4) ORGANISATION LOGIN
@@ -16,8 +18,12 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #eee;
-  font-family: sans-serif;
+  font-family: 'Helvetica';
 }
+
+/*
+1.1) HEADER
+*/
 
 header {
   height: 3em;
@@ -28,6 +34,17 @@ header {
   left: 0;
   overflow: hidden;
 }
+
+#calendar-button {
+  position: absolute;
+  left: 90%;
+  top: 0.8em;
+  color: white;
+}
+
+/*
+UNCLASSIFIED
+*/
 
 .bg-green {
   background-color: #19a974;
@@ -78,7 +95,7 @@ WrapText {
 */
 
 .list-page-content {
-  margin-top: 3em;
+  box-sizing: border-box;
   width: 100%;
   position: fixed;
   top: -100vh;
@@ -90,10 +107,18 @@ WrapText {
 }
 
 .calendar-section {
+  box-sizing: border-box;
+  /* padding is header height plus a bit more */
+  padding-top: 5em;
+  width: 100%;
   height: 100vh;
+  background: white;
 }
 
 .events-section {
+  box-sizing: border-box;
+  /* padding is header height */
+  padding-top: 3em;
   height: 100vh;
   overflow: scroll;
 }
@@ -102,28 +127,56 @@ WrapText {
 3) CALENDAR
 */
 
-
-/*
-CALENDAR
-*/
-
-.calendar-section {
-  width: 100%;
-  height: 100vh;
-  background: white;
+.calendar-section p {
+  text-align: center;
 }
 
 .calendar-container {
-
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  position: relative;
 }
 
-#calendar-button {
+#next-button {
   position: absolute;
-  left: 90%;
-  top: 0.8em;
-  color: white;
+  top: 1.8em;
+  right: 6%;
 }
 
+#prev-button {
+  position: absolute;
+  top: 1.8em;
+  left: 6%;
+}
+
+#calendar {
+  width: 100%;
+  /*position: absolute;*/
+}
+
+#calendar thead {
+  font-size: 1.5em;
+}
+
+#calendar table {
+  width: 100%;
+}
+
+#calendar td {
+  height: 2.5em;
+  vertical-align: middle;
+  width: 14.285714%;
+}
+
+td.not-current-month {
+  color: #ddd;
+}
+
+td.today {
+  /* arbitrary af */
+  color: #4ed686;
+}
 
 /*
 4) ORGANISATION LOGIN
