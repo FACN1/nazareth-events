@@ -24,14 +24,16 @@ server.use((req, res, next) => {
     jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         // token is not valid
-        return
+        return next()
       }
       // add to the request
       req.isAuthenticated = true
       req.username = decoded.username
+      next()
     })
+  } else {
+    next()
   }
-  next()
 })
 
 server.engine('hbs', hbs({
@@ -64,6 +66,13 @@ server.get('/events/:id', (req, res) => {
     }
     res.render('event_detail', event)
   })
+})
+
+server.get('/event-form', (req, res) => {
+  if (req.isAuthenticated) {
+    return res.render('event-form', { username: req.username })
+  }
+  res.redirect('/organisations/login')
 })
 
 server.get('/organisations/login', (req, res) => {
