@@ -79,6 +79,22 @@ server.get('/organisations/login', (req, res) => {
   res.render('organisations_login')
 })
 
+//
+//
+server.post('/add-event', function (req, res) {
+  // get the data from the request
+  const data = req.body
+  console.log(data)
+  // add to the database
+  db.addEvent(data, (err) => {
+    if (err) {
+      throw err
+    }
+    // send back a response message
+    res.send(JSON.stringify('Event added successfully'))
+  })
+})
+
 server.post('/authenticate', (req, res) => {
   const { username, password } = req.body
   db.getOrganizerByUsername(username, (err, organizer) => {

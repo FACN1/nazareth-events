@@ -36,3 +36,11 @@ db.getOrganizerByUsername = (username, cb) => {
     cb(null, res.rows[0])
   })
 }
+
+// const
+db.addEvent = (data, cb) => {
+  connection.query(
+    'INSERT INTO Events (title, location, organizer, start_time, end_time, cost, date, type, description, img_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);',
+    [data.title, data.location, data.organizer, data.start_time, data.end_time, data.cost, data.date, data.type, data.description, data.img_url],
+    cb)
+}
