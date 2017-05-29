@@ -3,10 +3,39 @@ body {
 
 }
 
-h1 {
-  color:red;
-  font-size: 2em;
+html {
+    font-family: sans-serif;
+    /*line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;*/
+}
 
+.bg-green {
+    background-color: #19a974;
+}
+
+
+/*
+images, or sth
+*/
+
+img {
+    max-width: 100%;
+    border-style: none;
+}
+
+smallimg {
+  width: 3em;
+}
+
+
+
+
+/*
+text size and coloring stuff
+*/
+
+WrapText {
   width: 40%;
   white-space: normal;
   word-wrap: break-word;
@@ -16,10 +45,30 @@ h1 {
 
 }
 
-BIgFont{
+.big-text {
   font-size: 2em;
   font-weight: bold;
 }
+
+.red-text {
+  color: red;
+}
+
+.inliner {
+  /*display: inline;*/
+  /*position: relative;*/
+  top:0
+}
+
+.font-cursive{
+ font-family: 'Satisfy', cursive;
+}
+
+
+
+
+
+
 
 /*
 login page
@@ -48,4 +97,5 @@ login page
   padding: 0.5em;
   border-radius: 10px;
   background: white;
+
 }
