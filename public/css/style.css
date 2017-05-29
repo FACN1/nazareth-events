@@ -1,19 +1,31 @@
-body {
-  background-color: blue;
+/*
+CONTENTS:
 
+1) GENERAL
+2) LIST PAGE
+3) CALENDAR
+4) ORGANISATION LOGIN
+5) ADD EVENT FORM
+*/
+
+/*
+1) GENERAL
+*/
+
+body {
+  background-color: #eee;
 }
 
 html {
-    font-family: sans-serif;
-    /*line-height: 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;*/
+  font-family: sans-serif;
+  /*line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;*/
 }
 
 .bg-green {
-    background-color: #19a974;
+  background-color: #19a974;
 }
-
 
 /*
 images, or sth
@@ -28,9 +40,6 @@ smallimg {
   width: 3em;
 }
 
-
-
-
 /*
 text size and coloring stuff
 */
@@ -39,10 +48,6 @@ WrapText {
   width: 40%;
   white-space: normal;
   word-wrap: break-word;
-  /*word-break: break-all;*/
-  /*width: 200px;   ******/
-  /*white-space: normal;   ******/
-
 }
 
 .big-text {
@@ -55,8 +60,6 @@ WrapText {
 }
 
 .inliner {
-  /*display: inline;*/
-  /*position: relative;*/
   top:0
 }
 
@@ -64,14 +67,16 @@ WrapText {
  font-family: 'Satisfy', cursive;
 }
 
-
-
-
-
-
+/*
+2) LIST PAGE
+*/
 
 /*
-login page
+3) CALENDAR
+*/
+
+/*
+4) ORGANISATION LOGIN
 */
 
 .login-form {
@@ -100,27 +105,18 @@ login page
   display: block;
 }
 
-
-
-
-/*buttons*/
+/*
+5) ADD EVENT FORM
+*/
 
 .submit-button {
-  /*display: block;
-  margin-left: auto;
-  margin-right: auto;*/
   margin: auto;
   display:  block;
 }
-/*
-div.center {
-  margin: 0 auto;
-  width: 80em;
-}*/
-
 
 .add-event-form input,
-.add-event-form select, textarea {
+.add-event-form select,
+.add-event-form textarea {
   width: 100%;
 }
 
