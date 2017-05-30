@@ -36,4 +36,7 @@ tape('test formatEvents function', t => {
   t.end()
 })
 
-// process.exit(0)
+tape.onFinish(() => {
+  // close db connections etc.
+  process.exit()
+})
