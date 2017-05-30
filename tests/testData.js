@@ -39,7 +39,8 @@ module.exports = {
     {
       input: [
         {title: 'test me', date: '2011-03-03'},
-        {title: 'test me again', date: '2011-04-03'}
+        {title: 'test me again', date: '2011-04-03'},
+        {title: 'test me thrice', date: '2011-04-03'}
       ],
       expectedOutput: [
         {
@@ -51,11 +52,36 @@ module.exports = {
         {
           date: '2011-04-03',
           events: [
-            {title: 'test me again', date: '2011-04-03'}
+            {title: 'test me again', date: '2011-04-03'},
+            {title: 'test me thrice', date: '2011-04-03'}
           ]
         }
       ],
-      message: 'should return correct result for 2 events on consecutive dates.'
+      message: 'should return correct result for events on consecutive dates.'
+    },
+    // test 4
+    {
+      input: [
+        {title: 'test me', date: '2011-06-03'},
+        {title: 'test me again', date: '2011-04-03'},
+        {title: 'test me thrice', date: '2011-04-03'}
+      ],
+      expectedOutput: [
+        {
+          date: '2011-04-03',
+          events: [
+            {title: 'test me again', date: '2011-04-03'},
+            {title: 'test me thrice', date: '2011-04-03'}
+          ]
+        },
+        {
+          date: '2011-06-03',
+          events: [
+            {title: 'test me', date: '2011-06-03'}
+          ]
+        }
+      ],
+      message: 'should return correct result for unordered events.'
     }
   ]
 
