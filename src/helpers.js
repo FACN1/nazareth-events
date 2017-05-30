@@ -1,7 +1,6 @@
 const helpers = module.exports = {}
 
 // converts events from array of event objs into array of objects of form { date, events array }
-// assumes events come in date order
 helpers.formatEvents = events => {
   // eventsObj is of the form {date: event, date: event, etc.}
   const eventsObj = events.reduce((eventsObj, event) =>
