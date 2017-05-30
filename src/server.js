@@ -83,10 +83,16 @@ server.get('/organisations/login', (req, res) => {
 //
 server.post('/add-event', function (req, res) {
   // get the data from the request
-  const data = req.body
-  console.log(data)
+  if (!req.isAuthenticated) {
+    return res.redirect('/organisations/login')
+  }
+  const formData = req.body
+  if (formData.organizer !== req.username) {
+    // user is trying to add event for a different organzation
+    return res.redirect('/organisations/login')
+  }
   // add to the database
-  db.addEvent(data, (err) => {
+  db.addEvent(formData, (err) => {
     if (err) {
       throw err
     }
