@@ -7,9 +7,10 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const dateFormat = require('dateformat')
 const cookieParser = require('cookie-parser')
-const datesWithEvents = require('./EventsData.js')
+const { formatEvents } = require('./helpers.js')
 
-require('env2')('./config.env')
+if (process.env.NODE_ENV !== 'production') require('env2')('./config.env')
+
 const server = express()
 
 server.use(express.static(path.join(__dirname, '../public')))
@@ -52,9 +53,8 @@ server.get('/', function (req, res) {
       // to be improved
       return res.send('db error :(')
     }
-    // () using mock data for now
     res.render('home', {
-      datesWithEvents: datesWithEvents
+      datesWithEvents: formatEvents(events)
     })
   })
 })
