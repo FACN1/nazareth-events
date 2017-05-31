@@ -2,9 +2,9 @@
 CONTENTS:
 
 1) GENERAL
-1.1) HEADER
-
+  1.1) HEADER
 2) LIST PAGE
+  2.1) EVENTS
 3) CALENDAR
 4) ORGANISATION LOGIN
 5) ADD EVENT FORM
@@ -17,7 +17,7 @@ CONTENTS:
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #eee;
+  background-color: #f9f9f9;
   font-family: 'Helvetica';
 }
 
@@ -121,6 +121,50 @@ WrapText {
   padding-top: 3em;
   height: 100vh;
   overflow: scroll;
+}
+
+/*
+2.1) EVENTS
+*/
+.event-date-container {
+  padding: 0em 0.5em;
+  overflow: hidden;
+  background: #dbffe9;
+}
+
+.event-date {
+  margin: 0.6em 0em;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+a.event-link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.event-container {
+  background: white;
+  border: 0px solid grey;
+  padding: 0.5em 0.5em;
+}
+
+.event-container:nth-child(odd) {
+  background: #eee;
+}
+
+.event-container:nth-child(even) {
+  background: white;
+}
+
+.event-container h3 {
+  margin: 0.5em 0em;
+}
+
+.event-container p {
+  margin: 0.5em 0em;
+  font-weight: lighter;
 }
 
 /*
