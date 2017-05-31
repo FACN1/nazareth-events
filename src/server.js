@@ -91,6 +91,7 @@ server.post('/add-event', function (req, res) {
     // user is trying to add event for a different organzation
     return res.redirect('/organisations/login')
   }
+
   // add to the database
   db.addEvent(formData, (err) => {
     if (err) {
