@@ -120,7 +120,7 @@ WrapText {
 2.1) EVENTS
 */
 .event-date-container {
-  padding: 0em 0.5em;
+  padding: 0em 0.8em;
   overflow: hidden;
   background: #eaf5fd;
 }
@@ -140,7 +140,7 @@ a.event-link {
 .event-container {
   background: #fefefe;
   border-top: 1px solid #ccc;
-  padding: 0.5em 0.5em;
+  padding: 0.5em 0.8em;
 }
 
 .event-container h3 {
