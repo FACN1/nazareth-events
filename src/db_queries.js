@@ -1,15 +1,20 @@
 const connection = require('../database/db_connection.js')
+const { formatDateForSQL } = require('./helpers.js')
 
 const db = module.exports = {}
 
-db.getEvents = (cb) => {
-  // calls the callback with an array of all events
-  connection.query('SELECT * FROM EVENTS', (err, res) => {
-    if (err) {
-      return cb(err)
+db.getEvents = (fromDate, toDate, cb) => {
+  // gets events between sepecified dates
+  connection.query(
+    'SELECT * FROM EVENTS WHERE date>=$1 AND date<$2',
+    [formatDateForSQL(fromDate), formatDateForSQL(toDate)],
+    (err, res) => {
+      if (err) {
+        return cb(err)
+      }
+      cb(null, res.rows)
     }
-    cb(null, res.rows)
-  })
+  )
 }
 
 db.getEventById = (id, cb) => {
