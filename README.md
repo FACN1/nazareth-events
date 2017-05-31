@@ -1,7 +1,10 @@
 # Nazareth Events
 
 An app for seeing events on in Nazareth.
-The initial [prototype](http://nav-events.herokuapp.com/nav)
+
+See some of the design screens [here](https://xd.adobe.com/view/93f73c2d-4a2d-4eb0-9926-5f17e41f5e30/).
+
+See the initial [prototype](http://nav-events.herokuapp.com/nav).
 
 ### Outline
 The site will have 2 basic users (and 2 separate branches):
