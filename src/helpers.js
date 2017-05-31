@@ -17,3 +17,21 @@ helpers.formatEvents = events => {
     events: eventsObj[date]
   }))
 }
+
+// can take as input a date or a date string in certain formats (e.g. yyyy-mm-dd)
+helpers.addDays = (date, days) => {
+  const result = new Date(date)
+  result.setDate(result.getDate() + days)
+  return result
+}
+
+// takes as input a date object, formats date as yyyy-mm-dd
+helpers.formatDateForSQL = (date) => {
+  const month = date.getMonth() + 1 // getMonth() is zero-based
+  const day = date.getDate()
+  return [
+    date.getFullYear(),
+    (month > 9 ? '' : '0') + month,
+    (day > 9 ? '' : '0') + day
+  ].join('-')
+}
