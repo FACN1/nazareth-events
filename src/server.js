@@ -9,7 +9,8 @@ const dateFormat = require('dateformat')
 const cookieParser = require('cookie-parser')
 const { formatEvents } = require('./helpers.js')
 
-require('env2')('./config.env')
+if (process.env.NODE_ENV !== 'production') require('env2')('./config.env')
+
 const server = express()
 
 server.use(express.static(path.join(__dirname, '../public')))
