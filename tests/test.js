@@ -15,7 +15,6 @@ tape('static file test: GET request to /css/style.css', t => {
     })
 })
 
-
 tape('route add-event test: request authentication to permit POST', t => {
   request(server)
     .post('/add-event')
