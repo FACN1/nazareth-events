@@ -24,14 +24,3 @@ helpers.addDays = (date, days) => {
   result.setDate(result.getDate() + days)
   return result
 }
-
-// takes as input a date object, formats date as yyyy-mm-dd
-helpers.formatDateForSQL = (date) => {
-  const month = date.getMonth() + 1 // getMonth() is zero-based
-  const day = date.getDate()
-  return [
-    date.getFullYear(),
-    (month > 9 ? '' : '0') + month,
-    (day > 9 ? '' : '0') + day
-  ].join('-')
-}

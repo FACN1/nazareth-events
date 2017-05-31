@@ -1,5 +1,5 @@
 const connection = require('../database/db_connection.js')
-const { formatDateForSQL } = require('./helpers.js')
+const dateFormat = require('dateformat')
 
 const db = module.exports = {}
 
@@ -7,7 +7,7 @@ db.getEvents = (fromDate, toDate, cb) => {
   // gets events between sepecified dates
   connection.query(
     'SELECT * FROM EVENTS WHERE date>=$1 AND date<$2',
-    [formatDateForSQL(fromDate), formatDateForSQL(toDate)],
+    [dateFormat(fromDate, 'yyyy-mm-dd'), dateFormat(toDate, 'yyyy-mm-dd')],
     (err, res) => {
       if (err) {
         return cb(err)
