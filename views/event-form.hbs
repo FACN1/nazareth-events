@@ -1,44 +1,48 @@
 <p> hello {{username}} </p>
 
-<form class="add-event-form" action="tobeimplementedlater" method="post">
+<form class="add-event-form" action="/add-event" method="post">
   <label>Title:</label>
-  <input type="text" name="title" value="">
+  <input type="text" name="title" value="" required>
 
 <!--  img url-->
+  <input type="hidden" name="organizer" value={{username}}>
 
   <label>category:</label>
-    <select class="" name="type">
-      <option value="">Sports</option>
-      <option value="">Educational</option>
-      <option value="">Theatrical</option>
-      <option value="">Social Gathering</option>
-      <option value="">Cinema</option>
-      <option value="">Music Event</option>
-      <option value="">Cultural Event</option>
-      <option value="">Guesthouse</option>
-      <option value="">Store</option>
-      <option value="">Restaurant</option>
-      <option value="">Historical site</option>
-      <option value="">Hangout Spots</option>
+    <select class="" name="type" required>
+      <option value=""></option>
+      <option value="Sports">Sports</option>
+      <option value="Educational">Educational</option>
+      <option value="Theatrical">Theatrical</option>
+      <option value="Social Gathering">Social Gathering</option>
+      <option value="Cinema">Cinema</option>
+      <option value="Music Event">Music Event</option>
+      <option value="Cultural Event">Cultural Event</option>
+      <option value="Guesthouse">Guesthouse</option>
+      <option value="Store">Store</option>
+      <option value="Restaurant">Restaurant</option>
+      <option value="Historical site">Historical site</option>
+      <option value="Hangout Spots">Hangout Spots</option>
+      <option value="Miscellaneous">Miscellaneous</option>
+      <option value="Unspecified">Unspecified</option>
     </select>
 
   <label>Date: </label>
-  <input type="date" name="formatDate" value="">
+  <input type="date" name="date" value="" required>
 
   <label>Location: </label>
-  <input type="text" name="location" value="">
+  <input type="text" name="location" value="" required>
 
   <label>Starting Time: </label>
-  <input type="datetime-local" name="start_time" value="">
+  <input type="time" name="start_time" value="" required>
 
   <label>Ending Time: </label>
-  <input type="datetime-local" name="end_time" value="">
+  <input type="time" name="end_time" value="" required>
 
   <label>Price: </label>
   <input type="text" name="cost" value="">
 
   <label>Description: </label>
-  <textarea name="description" rows="8" cols="80"></textarea>
+  <textarea name="description" rows="8" cols="80" required></textarea>
 
   <button type="submit" name="submit-button" class="submit-button">Submit</button>
 </form>
