@@ -1,8 +1,7 @@
 (function() {
 
   function dateClickHandler (e) {
-    // TODO: reload page starting with different date
-    alert('implement this asap, clicked on ', e.target.dataset.date)
+    window.location.assign('/?d=' + e.target.dataset.date)
   }
 
   function addDateEventListeners () {
