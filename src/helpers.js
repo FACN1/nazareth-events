@@ -5,11 +5,11 @@ const helpers = module.exports = {}
 helpers.formatEvents = events => {
   // eventsObj is of the form {date: event, date: event, etc.}
   const eventsObj = events.reduce((eventsObj, event) => {
-    const eventdaterep = dateFormat(event.date, 'yyyy-mm-dd')
+    const EventDateRep = dateFormat(event.date, 'yyyy-mm-dd')
     return Object.assign(eventsObj, {
-      [eventdaterep]:
-        eventsObj[eventdaterep]
-          ? eventsObj[eventdaterep].concat(event)
+      [EventDateRep]:
+        eventsObj[EventDateRep]
+          ? eventsObj[EventDateRep].concat(event)
           : [event]
     })
   }, {})
