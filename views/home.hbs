@@ -9,13 +9,20 @@
 
   <section class="events-section">
     {{#each datesWithEvents}}
-    <p class="red-text">{{date}}</p>
+    <div class="event-date-container">
+      <p class="event-date">{{prettyDate date}}</p>
+    </div>
+
     {{#each events}}
-    <p>{{title}} </p>
-    <p>{{description}}</p>
-    <p>{{time}} {{location}}</p>
-    <br/>
+    <div class="event-container">
+        <a class="event-link" href="/events/{{id}}">
+        <h3>{{title}}</h3>
+        <p>At {{location}}</p>
+        <p>{{prettyTime start_time}} to {{prettyTime end_time}}</p>
+      </a>
+    </div>
     {{/each}}
+
     {{/each}}
   </section>
 

@@ -41,7 +41,8 @@ server.engine('hbs', hbs({
   defaultLayout: 'main',
   extname: 'hbs',
   helpers: {
-    formatDate: (date) => dateFormat(date, 'dddd d mmmm, yyyy')
+    prettyDate: (date) => dateFormat(date, 'dddd d mmmm, yyyy'),
+    prettyTime: (time) => time.toString().slice(0, 5)
   }
 }))
 

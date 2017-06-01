@@ -2,9 +2,9 @@
 CONTENTS:
 
 1) GENERAL
-1.1) HEADER
-
+  1.1) HEADER
 2) LIST PAGE
+  2.1) EVENTS
 3) CALENDAR
 4) ORGANISATION LOGIN
 5) ADD EVENT FORM
@@ -17,7 +17,7 @@ CONTENTS:
 html, body {
   margin: 0;
   padding: 0;
-  background-color: #eee;
+  background-color: #f9f9f9;
   font-family: 'Helvetica';
 }
 
@@ -26,6 +26,7 @@ html, body {
 */
 
 header {
+  background: #807cff;
   height: 3em;
   width: 100%;
   z-index: 100;
@@ -44,14 +45,6 @@ header {
 
 /*
 UNCLASSIFIED
-*/
-
-.bg-green {
-  background-color: #19a974;
-}
-
-/*
-images, or sth
 */
 
 img {
@@ -121,6 +114,42 @@ WrapText {
   padding-top: 3em;
   height: 100vh;
   overflow: scroll;
+}
+
+/*
+2.1) EVENTS
+*/
+.event-date-container {
+  padding: 0em 0.8em;
+  overflow: hidden;
+  background: #eaf5fd;
+}
+
+.event-date {
+  margin: 0.6em 0em;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+a.event-link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.event-container {
+  background: #fefefe;
+  border-top: 1px solid #ccc;
+  padding: 0.5em 0.8em;
+}
+
+.event-container h3 {
+  margin: 0.5em 0em;
+}
+
+.event-container p {
+  margin: 0.5em 0em;
+  font-weight: lighter;
 }
 
 /*
