@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const dateFormat = require('dateformat')
 const cookieParser = require('cookie-parser')
-const { formatEvents } = require('./helpers.js')
+const { formatEvents, addDays } = require('./helpers.js')
 
 if (process.env.NODE_ENV !== 'production') require('env2')('./config.env')
 
@@ -48,7 +48,10 @@ server.engine('hbs', hbs({
 server.set('view engine', 'hbs')
 
 server.get('/', function (req, res) {
-  db.getEvents((err, events) => {
+  // from date is taken from the querystring, or today if none provided
+  const fromDate = req.query.d ? new Date(req.query.d) : new Date()
+  const toDate = addDays(fromDate, 7)
+  db.getEvents(fromDate, toDate, (err, events) => {
     if (err) {
       // to be improved
       return res.send('db error :(')

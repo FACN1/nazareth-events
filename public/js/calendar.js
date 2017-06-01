@@ -82,7 +82,8 @@ Cal.prototype.showMonth = function(y, m) {
 
     var dow = dateObj.getDay();
 
-    var dstring = y + '-' + m + '-' + i
+    // deal with the 0 indexing of month here
+    var dstring = y + '-' + (m + 1) + '-' + i
 
     // If Sunday, start new row
     if ( dow == 0 ) {
