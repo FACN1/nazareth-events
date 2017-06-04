@@ -1,5 +1,11 @@
 const dateFormat = require('dateformat')
+
 const helpers = module.exports = {}
+
+const sortByStartTime = (event1, event2) => {
+  const [t1, t2] = [event1.start_time, event2.start_time]
+  return t1 < t2 ? -1 : t1 > t2 ? 1 : 0
+}
 
 // converts events from array of event objs into array of objects of form { date, events array }
 helpers.formatEvents = events => {
@@ -16,7 +22,7 @@ helpers.formatEvents = events => {
 
   return Object.keys(eventsObj).sort().map(date => ({
     date: date,
-    events: eventsObj[date]
+    events: eventsObj[date].sort(sortByStartTime)
   }))
 }
 
