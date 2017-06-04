@@ -8,6 +8,7 @@ CONTENTS:
 3) CALENDAR
 4) ORGANISATION LOGIN
 5) ADD EVENT FORM
+6) EVENT DETAIL
 */
 
 /*
@@ -259,4 +260,40 @@ td.today {
 .add-event-form {
   width: 90%;
   margin: auto;
+}
+
+/*
+6) EVENT DETAIL
+*/
+
+.detail-section {
+  box-sizing: border-box;
+  /* padding is header height */
+  padding: 3em 1.3em 1em 1.3em;
+}
+
+.detail-title {
+  font-size: 1.6em;
+  font-weight: 300;
+}
+
+.detail-image {
+  max-width: 100%;
+  max-height: 18em;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.detail-date {
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.detail-section p {
+  margin: 0.5em 0em;
+}
+
+.detail-section .detail-description {
+  margin: 1em 0em;
+  font-weight: 100;
 }
