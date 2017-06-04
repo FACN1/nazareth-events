@@ -82,6 +82,25 @@ module.exports = {
         }
       ],
       message: 'should return correct result for unordered events.'
+    },
+    // test 5
+    {
+      input: [
+        {title: 'test me', date: '2011-06-03', start_time: '10:00:00'},
+        {title: 'test me again', date: '2011-06-03', start_time: '09:00:00'},
+        {title: 'test me thrice', date: '2011-06-03', start_time: '06:00:00'}
+      ],
+      expectedOutput: [
+        {
+          date: '2011-06-03',
+          events: [
+            {title: 'test me thrice', date: '2011-06-03', start_time: '06:00:00'},
+            {title: 'test me again', date: '2011-06-03', start_time: '09:00:00'},
+            {title: 'test me', date: '2011-06-03', start_time: '10:00:00'}
+          ]
+        }
+      ],
+      message: 'should return events on the same day correctly ordered by start time.'
     }
   ]
 
