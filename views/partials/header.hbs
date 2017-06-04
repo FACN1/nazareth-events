@@ -2,11 +2,11 @@
 
   <h3 class="header-title">Nazareth Events</h3>
 
-  {{#if headerBack}}
-  <i id="back-button" class="fa fa-chevron-left" aria-hidden="true"></i>
+  {{#if headerHasBackButton}}
+  <i id="back-button" onclick="window.history.go(-1); return false;" class="fa fa-chevron-left" aria-hidden="true"></i>
   {{/if}}
 
-  {{#if headerCalendar}}
+  {{#if headerHasCalendarButton}}
   <i id="calendar-button" class="fa fa-calendar-o" aria-hidden="true"></i>
   {{/if}}
 

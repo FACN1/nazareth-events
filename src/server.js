@@ -58,7 +58,7 @@ server.get('/', function (req, res) {
       return res.send('db error :(')
     }
     res.render('home', {
-      headerCalendar: true,
+      headerHasCalendarButton: true,
       datesWithEvents: formatEvents(events)
     })
   })
@@ -69,7 +69,9 @@ server.get('/events/:id', (req, res) => {
     if (err) {
       return res.send('db error :(')
     }
-    res.render('event_detail', event)
+    res.render('event_detail', Object.assign(event, {
+      headerHasBackButton: true
+    }))
   })
 })
 
