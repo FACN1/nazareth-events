@@ -1,9 +1,13 @@
-<h2>{{title}}</h2>
-{{#if img_url}}
-  <img src={{img_url}} alt={{title}} />
-{{/if}}
-<p>category: {{type}}</p>
-<p>{{prettyDate date}} at {{location}}</p>
-<p>from {{start_time}} to {{end_time}}</p>
-<p>price: {{cost}}</p>
-<p>{{description}}</p>
+{{> header}}
+
+<div class="detail-section">
+  <h2 class="detail-title">{{title}}</h2>
+  {{#if img_url}}
+  <img class="detail-image" src={{img_url}} alt={{title}} />
+  {{/if}}
+  <!-- <p>category: {{type}}</p> -->
+  <p class="detail-date">{{prettyDate date}}</p>
+  <p>{{prettyTime start_time}} - {{prettyTime end_time}} at {{location}}</p>
+  <p>price: {{cost}}</p>
+  <p class="detail-description">{{description}}</p>
+</div>
