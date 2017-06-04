@@ -58,6 +58,7 @@ server.get('/', function (req, res) {
       return res.send('db error :(')
     }
     res.render('home', {
+      headerCalendar: true,
       datesWithEvents: formatEvents(events)
     })
   })

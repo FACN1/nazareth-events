@@ -36,10 +36,25 @@ header {
   overflow: hidden;
 }
 
+.header-title {
+  margin: 0.7em;
+  font-weight: 300;
+  font-family: sans-serif;
+  text-align: center;
+  color: #eaf5fd;
+}
+
 #calendar-button {
   position: absolute;
-  left: 90%;
-  top: 0.8em;
+  right: 1.2em;
+  top: 0.9em;
+  color: white;
+}
+
+#back-button {
+  position: absolute;
+  left: 0.8em;
+  top: 1em;
   color: white;
 }
 
