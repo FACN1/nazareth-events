@@ -1,17 +1,17 @@
 {
-  "name": "Naz_Community_attractions",
+  "name": "nazareth-events",
   "version": "1.0.0",
-  "description": "We are building a prototype for a future application which will show the  events that will take place in Nazareth.",
+  "description": "An app to see events going on in Nazareth",
   "main": "index.js",
   "scripts": {
     "test": "node ./tests/test.js | tap-spec",
     "start": "node src/start.js",
     "dev": "nodemon src/start.js",
-    "lint": "./node_modules/.bin/eslint **/*.js"
+    "lint": "./node_modules/.bin/eslint './+(src|tests|database|views)/**/*.js'"
   },
   "pre-commit": [
-    "test",
-    "lint"
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",
@@ -21,15 +21,14 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FACN1/Naz_Community_attractions/issues"
+    "url": "https://github.com/FACN1/nazareth-events/issues"
   },
-  "homepage": "https://github.com/FACN1/Naz_Community_attractions#readme",
+  "homepage": "https://github.com/FACN1/nazareth-events#readme",
   "dependencies": {
     "cookie-parser": "^1.4.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "dateformat": "^2.0.0",
-    "env2": "^2.2.0",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.8",
@@ -37,6 +36,7 @@
     "pg": "^6.2.2"
   },
   "devDependencies": {
+    "env2": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.2.0",
